@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Graça e Vida</title>
+    <!-- Tailwind CSS -->
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <!-- FontAwesome Ícones -->
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <!-- Netlify Identity Widget -->
+    <script src="[https://identity.netlify.com/v1/netlify-identity-widget.js](https://identity.netlify.com/v1/netlify-identity-widget.js)"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center font-bold text-xl text-white">
+                    <i class="fa-solid font-bold text-lg">✝</i>
+                </div>
+                <span class="font-bold text-xl tracking-wide uppercase">Graça &amp; Vida</span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-6 font-medium text-slate-300 text-sm">
+                <a href="#inicio" class="hover:text-amber-500 transition">Início</a>
+                <a href="#cultos" class="hover:text-amber-500 transition">Cultos</a>
+                <a href="#eventos" class="hover:text-amber-500 transition">Eventos</a>
+                <a href="#ministerios" class="hover:text-amber-500 transition">Ministérios</a>
+                <a href="#dizimos" class="hover:text-amber-500 transition">Contribua</a>
+                <a href="#oracao" class="hover:text-amber-500 transition">Pedir Oração</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="toggleMembersArea()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-4 py-2 rounded-lg text-sm flex items-center gap-2 transition">
+                    <i class="fa-solid fa-lock text-xs"></i> Área de Membros
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-slate-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto text-center px-4 relative z-10">
+            <span class="text-amber-500 font-semibold tracking-wider uppercase text-sm">Seja muito bem-vindo</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-3 mb-6 tracking-tight">Um lugar de fé, esperança e comunidade</h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                Conecte-se conosco, fortaleça sua fé e faça parte de uma família que busca impactar o mundo.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#cultos" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-3 rounded-lg text-base transition">Nossos Horários</a>
+                <a href="#oracao" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-lg text-base border border-slate-700 transition">Pedir Oração</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA EXCLUSIVA DE MEMBROS (INICIALMENTE OCULTA) -->
+    <section id="members-section" class="hidden py-16 bg-amber-50 border-y border-amber-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <span class="bg-amber-600 text-white text-xs font-bold px-2.5 py-1 rounded">ACESSO RESTRITO</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Área Exclusiva do Membro</h2>
+                </div>
+                <button onclick="toggleMembersArea()" class="text-slate-500 hover:text-slate-800 font-medium text-sm">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair / Sombra
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Avisos Internos -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-bullhorn text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mural de Avisos</h3>
+                    <p class="text-slate-600 text-sm mb-4">Reunião geral de liderança neste sábado às 16h no salão social.</p>
+                    <span class="text-xs text-slate-400">Atualizado recentemente</span>
+                </div>
+
+                <!-- Card 2: Escalas -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-calendar-check text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Escala do Mês</h3>
+                    <p class="text-slate-600 text-sm mb-2"><strong>Louvor:</strong> Grupo 2</p>
+                    <p class="text-slate-600 text-sm mb-4"><strong>Recepção:</strong> Equipe A</p>
+                    <a href="#" class="text-amber-600 text-sm font-semibold hover:underline">Ver escala completa &rarr;</a>
+                </div>
+
+                <!-- Card 3: Downloads -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-file-pdf text-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Estudos &amp; PDFs</h3>
+                    <p class="text-slate-600 text-sm mb-4">Baixe o estudo da semana para pequenos grupos de oração.</p>
+                    <button class="bg-slate-900 text-white text-xs px-4 py-2 rounded font-semibold hover:bg-slate-800 transition">Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CULTOS E HORÁRIOS -->
+    <section id="cultos" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Nossos Cultos</h2>
+            <p class="text-slate-600 mt-2">Venha celebrar e aprender a Palavra conosco</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-church text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Culto de Celebração</h3>
+                <p class="text-amber-600 font-semibold mb-4">Domingos às 19:00</p>
+                <p class="text-slate-600 text-sm">Momentos de louvor, adoração profunda e ministração da Palavra para toda a família.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-book-bible text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Culto de Ensino</h3>
+                <p class="text-amber-600 font-semibold mb-4">Quartas-feiras às 19:30</p>
+                <p class="text-slate-600 text-sm">Estudo bíblico aprofundado e oração congregacional para fortalecimento espiritual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOAÇÕES E PIX -->
+    <section id="dizimos" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold mb-4">Dízimos e Ofertas</h2>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Sua contribuição voluntária ajuda a manter a estrutura da igreja e apoiar projetos sociais.</p>
+            <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 max-w-md mx-auto">
+                <p class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Chave PIX (CNPJ)</p>
+                <div class="flex items-center justify-between bg-slate-900 p-3 rounded-lg border border-slate-700 mb-4">
+                    <span id="pix-key" class="font-mono text-amber-500 font-bold">00.000.000/0001-00</span>
+                    <button onclick="copyPix()" class="text-slate-400 hover:text-white transition">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                </div>
+                <p id="copy-status" class="text-xs text-amber-500 font-medium h-4"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEDIDO DE ORAÇÃO -->
+    <section id="oracao" class="py-20 max-w-3xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold">Pedido de Oração</h2>
+            <p class="text-slate-600 mt-2">Nossa equipe estará orando pelo seu pedido</p>
+        </div>
+        <form class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-4" name="oracao" method="POST" data-netlify="true">
+            <div>
+                <label class="block text-sm font-semibold mb-1">Nome Completo</label>
+                <input type="text" name="nome" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1">Seu Pedido de Oração</label>
+                <textarea name="pedido" rows="4" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg transition">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Igreja Graça e Vida. Todos os direitos reservados.</p>
+            <a href="/admin/" class="text-slate-400 hover:text-amber-500 transition font-medium flex items-center gap-1">
+                <i class="fa-solid fa-user-gear text-xs"></i> Acesso Administrativo
+            </a>
+        </div>
+    </footer>
+
+    <!-- JS INTERATIVO -->
+    <script>
+        function toggleMembersArea() {
+            const section = document.getElementById('members-section');
+            section.classList.toggle('hidden');
+            if (!section.classList.contains('hidden')) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function copyPix() {
+            const key = document.getElementById('pix-key').innerText;
+            navigator.clipboard.writeText(key);
+            const status = document.getElementById('copy-status');
+            status.innerText = "Chave PIX copiada com sucesso!";
+            setTimeout(() => { status.innerText = ""; }, 3000);
+        }
+    </script>
+</body>
+</html>
